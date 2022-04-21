@@ -7,9 +7,6 @@ const Room = require('./room');
 
 // Constants
 const PORT = 8080;
-const MAX_CONNECTIONS = 8;
-
-let connection_index = 0;
 
 // Create new express app
 const app = express();
@@ -47,6 +44,6 @@ app.get("/", (req, res) => {
 });
 
 // Start server
-server.listen(PORT, () => {
+server.listen(process.env.PORT || PORT, () => {
     console.log("Server started on port " + PORT);
 });
